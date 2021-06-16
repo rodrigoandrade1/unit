@@ -32,47 +32,50 @@ frete_motoboy = 0
 frete_proprietario = 0
 frete_total = 0
 lucro_proprietario = 0
+valor_sem_frete = 0 
 atendimento = True
 
 while atendimento:
     cpf = int(input("Informe o CPF do cliente: "))
     if cpf != -1:
         pedido = True
+        valor_pedido = 0
         while pedido:
-            cod = input("Informe o código do pedido")
-            qtd = input("Informe a quantidade do produto", cod)
+            cod = int(input("Informe o código do pedido"))
+            if cod != -1:
+                qtd = int(input("Informe a quantidade do produto"))
 
-            cod_100 = 4.20, cod_101 = 7.30, cod_102 = 8.50, cod_103 = 9.20, cod_104 = 10.30, cod_105 = 8
+                if cod == 100:
+                    preco = 4.20 * qtd
+                elif cod == 101:
+                    preco = 7.30 * qtd
+                elif cod == 102:
+                    preco = 8.50 * qtd
+                elif cod == 103:
+                    preco = 9.20 * qtd
+                elif cod == 104:
+                    preco = 10.30 * qtd
+                elif cod == 105:
+                    preco = 8 * qtd
+                
+                valor_pedido += preco
+                valor_sem_frete += preco
+            else:
+                frete = int(input("Informe o frete do pedido: "))
+                frete_total += frete
 
-            if cod == 100:
-                preco = cod_100 * qtd
-            elif cod == 101:
-                preco = cod_101 * qtd
-            elif cod == 102:
-                preco = cod_102 * qtd
-            elif cod == 103:
-                preco = cod_103 * qtd
-            elif cod == 104:
-                preco = cod_104 * qtd
-            elif cod == 105:
-                preco = cod_105 * qtd
-            
-            valor_pedido += preco
+                valor_pedido += frete
 
-        frete = input("Informe o frete do pedido: ")
-        frete_total += frete
+                if valor_pedido > pedido_mais_caro:
+                    pedido_mais_caro = valor_pedido
+                if valor_pedido < pedido_mais_barato:
+                    pedido_mais_barato = valor_pedido
 
-        valor_pedido += frete
+                frete_motoboy += frete * 0.6
+                frete_proprietario += (frete * 0.4)
 
-        if valor_pedido > pedido_mais_caro:
-            pedido_mais_caro = valor_pedido
-        elif valor_pedido < pedido_mais_barato:
-            pedido_mais_barato = valor_pedido
-
-        frete_motoboy += frete * 0.4
-        frete_proprietario += frete * 0.6
-
-        lucro_proprietario += frete_proprietario + valor_pedido
+                lucro_proprietario += (frete_proprietario + valor_sem_frete)
+            pedido = False
     else:
         atendimento = False
         print("A.", pedido_mais_caro)
