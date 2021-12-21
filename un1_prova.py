@@ -1,22 +1,59 @@
-# Recentemente ocorreram mudanças na legislação de trânsito referente ao acúmulo de pontos na CNH.
-#  A partir de agora, há uma gradação no aumento desta pontuação. Ou seja, dependendo da gravidade da infração, 
-# ,o condutor pode perder o documento com 20, 30 ou 40 pontos acumulados dentro de 12 meses.
+# Você está começando um negócio de aluguel de máquinas para construção e precisa
+# desenvolver um sistema em PYTHON para controlar esses alugueis. Atualmente você possui 3
+# máquinas disponíveis para alugação pelos clientes.
+# O sistema deve ter um menu com as seguintes funcionalidades e requisitos:
+# a) Cadastro de Clientes; (0,5)
+# a. CPF, Nome;
+# b) Cadastro de Máquinas para Aluguel; (0,5)
+# a. Código identificador, Tipo de máquina [Perfurador, Demolidor, Compactador],
+# marca, modelo, ano, valor do aluguel, status [Alugada, Disponível];
 
-# Se houver duas ou mais infrações gravíssimas dentro desse período, a CNH é suspensa com 20 pontos.
-#  Se houver uma infração gravíssima, a suspensão ocorre com 30 pontos. No entanto, ele só chegará aos 40 pontos
-#  dentro de 12 meses, caso não ocorra nenhuma infração gravíssima.
+# c) Registro de Aluguel; (1,0)
+# a. Usuário informa CPF e Código Identificador para reservar a máquina (só é
+# permitido alugar máquinas com status Disponível);
 
-# O Detran solicitou à equipe de TI um programa em PYTHON para controlar a aplicação dessas novas regras.
-#  Dessa forma, o programa deve solicitar o número da CNH do condutor, nome, sexo, a quantidade de pontos 
-# registrados e a quantidade de infrações gravíssimas. 
+# d) Relatório de Clientes; (0,2)
+# e) Relatório de Máquinas; (0,3)
+# f) Relatório de Alugueis (0,5)
+# a. Informar o Nome do cliente + Código identificador da máquina, tipo da máquina,
+# valor do aluguel;
 
-# O programa deve solicitar as informações até que o usuário indique que não há mais registros. 
-# Em seguida, o programa deverá gerar as seguintes informações:
+# O sistema deve ser capaz de armazenar dados (em arquivos) para serem visualizados, mesmo
+# após o término da execução do programa.
 
-# a) A quantidade de condutores do sexo feminino que não tiveram a CNH suspensa; (1,0)
-# b) A média da quantidade de pontos registrados de condutores do sexo feminino; (1,0)
-# c) O percentual de condutores do sexo masculino que tiveram a CNH suspensa com 40 pontos;
-# (1,0)
-# d) A quantidade de condutores que não tiveram CNH suspensa; (1,0)
-# e) O nome e sexo do condutor que teve a maior quantidade de pontos registrados; (1,0)
-# f) O número da CNH do condutor que teve menor pontuação registrada. (1,0)
+# Questão 2 (4,5)
+# Uma determinada empresa deseja construir um sistema para controlar as consultas veterinárias
+# em uma petshop. O valor da consulta é cobrado de acordo com a espécie do pet: Cão – R$ 100,00;
+# Gato – R$ 120,00; Pássaro – R$ 150,00.
+# O sistema deve ter um menu com as seguintes funcionalidades e requisitos:
+# a) Cadastro de Veterinários; (0,3)
+# a. CFMV, Nome, CPF, Sexo [Feminino, Masculino], Status [Ativo, Inativo];
+# b) Inativação do cadastro do Veterinário; (0,2)
+# c) Cadastro de Pets; (0,5)
+# a. Código Registro, Nome, Espécie [Cão, Gato, Pássaro];
+# d) Registrar Consulta; (1,0)
+# a. Usuário informa data da consulta, CFMV, Código Registro do Pet;
+# b. Cada consulta quando registrada fica com status Ativa;
+# c. O cadastro do veterinário precisa estar ativo para registrar a consulta;
+# d. Cada consulta deverá ter seu registro de cobrança de acordo com a espécie do
+# pet;
+
+# e) Cancelar Consulta; (1,0)
+# a. Usuário informa data da consulta, CFMV e Código Registro do Pet para cancelar
+# a consulta;
+# b. Quando a consulta é cancelada a mesma fica com status Inativa e não deve ter
+# cobrança de valor;
+# f) Relatório de Pets; (0,2)
+# a. Exibe todos os dados dos pets;
+# g) Relatório de Veterinários Ativos; (0,3)
+# a. Exibe todos os dados dos veterinários;
+# h) Relatório de Consultas por Data (1,0)
+# a. Usuário informa a data para gerar o relatório;
+# b. O relatório deve exibir todas as informações da consulta: Data, CFMV e Nome do
+# Veterinário, Código de Registro e Nome do Pet, status da consulta, valor da
+# consulta;
+# c. A última linha do relatório deve conter o valor total arrecadado das consultas do
+# dia.
+
+# O sistema deve ser capaz de armazenar dados (em arquivos) para serem visualizados, mesmo após o
+# término da execução do programa.
